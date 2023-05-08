@@ -15,3 +15,12 @@ it ('Teste de input', ()=>{
     let input1 = screen.getByPlaceholderText('Digite a sua altura');
     expect(input1).toBeInTheDocument();
 })
+
+it('Teste da class main', ()=>{
+    render(
+        <App/>
+    );
+
+    let Main = screen.getByText('Calcule o seu IMC.');
+    expect(Main).toBeInTheDocument();
+})

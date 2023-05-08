@@ -1,6 +1,9 @@
 import { useState } from "react";
 import styles from  "./App.module.css";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 //importando arquivos
 import poweredImage from "./assets/powered.png";
 import leftarrow from "./assets/leftarrow.png";
@@ -16,7 +19,7 @@ const App = ()=>{
       if(heightField && widthField){
         setShowItem(calculateImc(heightField, widthField));
       }else{
-        alert('confira todos os campos')
+        toast.error('confira todos os campos')
       }
     }
 
@@ -28,6 +31,11 @@ const App = ()=>{
 
   return(
     <div className="main" >
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        theme="colored"
+      />
       <header>
         <div className={styles.headerContainer} >
           <img src={poweredImage} alt="logo"  width={150} />.
